@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS's Brawl Stars Site</title>
+    <style>
+        :root {
+            --primary-color: #f8cc1b; /* Brawl Stars Yellow */
+            --secondary-color: #512da8; /* Deep Purple */
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #ffffff;
+            --text-dim: #b0b0b0;
+            --accent: #ff4081;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), #311b92);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        header p {
+            margin-top: 0.7rem;
+            font-size: 1.1rem;
+            color: var(--text-dim);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* URL Input Section */
+        .nav-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .nav-section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            background: #000;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .input-group button {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 0 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .input-group button:hover {
+            background-color: #ffeb3b;
+        }
+
+        .input-group button:active {
+            transform: scale(0.95);
+        }
+
+        /* Example Websites Grid */
+        .section-title {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .site-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .site-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            display: block;
+        }
+
+        .site-card:hover {
+            background: #2a2a2a;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .site-card h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+        }
+
+        .site-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* My Links Section */
+        .author-section {
+            background: rgba(81, 45, 168, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px dashed var(--secondary-color);
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+
+        .link-list li {
+            margin-bottom: 12px;
+        }
+
+        .link-list a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+
+        .link-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-left: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ARS's Brawl Stars Site</h1>
+    <p>A versatile site where you can browse anything, anywhere!</p>
+</header>
+
+<div class="container">
+    <!-- Manual Navigation -->
+    <div class="nav-section">
+        <h2>Navigate to any URL</h2>
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="Enter URL (e.g. google.com)">
+            <button onclick="redirectToSite()">Go</button>
+        </div>
+    </div>
+
+    <!-- Curated Websites -->
+    <h2 class="section-title">🌐 Example Websites</h2>
+    <div class="site-grid">
+        <a href="https://www.google.com" class="site-card">
+            <h3>Google</h3>
+            <p>For searching the web</p>
+        </a>
+        <a href="https://www.youtube.com" class="site-card">
+            <h3>YouTube</h3>
+            <p>For watching videos</p>
+        </a>
+        <a href="https://files.dnull.xyz/someshit.html" class="site-card">
+            <h3>Null's Magic Color</h3>
+            <p>For colored text input</p>
+        </a>
+        <a href="https://nulls.gg" class="site-card">
+            <h3>Nulls.gg</h3>
+            <p>Official Null's site for private servers</p>
+        </a>
+    </div>
+
+    <!-- Author Socials -->
+    <div class="author-section">
+        <h2 class="section-title" style="border-color: var(--accent);">✍️ My Links</h2>
+        <ul class="link-list">
+            <li>
+                <a href="https://youtube.com/@ARS7236">ARS7236's YouTube</a>
+                <span class="link-desc">— My official YouTube channel</span>
+            </li>
+            <li>
+                <a href="https://t.me/ARS7236">ARS7236's Telegram #1</a>
+                <span class="link-desc">— Main channel for shitposting</span>
+            </li>
+            <li>
+                <a href="https://t.me/arstoonnetwork">ARSTOON NETWORK STUDIOS</a>
+                <span class="link-desc">— Studio and production channel</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    © 2026 ARS7236
+</footer>
+
+<script>
+    function redirectToSite() {
+        let url = document.getElementById('urlInput').value.trim();
+        if (url === "") return;
+
+        // Auto-format the URL if the user didn't include http/https
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            url = 'https://' + url;
+        }
+
+        // Redirect the current window to the new URL
+        window.location.href = url;
+    }
+
+    // Allow pressing "Enter" key to trigger the redirect
+    document.getElementById('urlInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            redirectToSite();
+        }
+    });
+</script>
+
+</body>
+</html>
