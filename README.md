@@ -1,23 +1,20 @@
-## ARS's Brawl Stars Site
-# Site where you can browse anything and anywhere!
+# ARS's Brawl Stars Site
+> A versatile site where you can browse anything, anywhere!
 
-## **For example you can insert any website in the text box, or pick any website you want from list!**
+This platform allows you to navigate the web by inserting any URL into the text box or choosing from a curated list of sites.
 
-# Example websites:
-- [Google](www.google.com)
-  - *(For a search)*
-- [Youtube](youtube.com)
-  - *(for watching videos)*
-- [Null's Magic Color](files.dnull.xyz/someshit.html)
-  - *(for colored text input)*
-- [Nulls.gg](nulls.gg)
-  - *(Official Null's site for private servers)*
+## 🌐 Example Websites
+*   [Google](https://www.google.com) — *For searching the web*
+*   [YouTube](https://www.youtube.com) — *For watching videos*
+*   [Null's Magic Color](https://files.dnull.xyz/someshit.html) — *For colored text input*
+*   [Nulls.gg](https://nulls.gg) — *Official Null's site for private servers*
 
+## ✍️ My links
+(as author i want to include my socials down my website.) Here's the example links:
 
-# MY links(as author, i want include my links down the website):
-- [ARS7236's Yt](youtube.com/@ARS7236)
-  - *(this is my youtube channel)*
-- [ARS7236's TG channel #1](t.me/ARS7236)
-  - *(this is my main telegram channel for shitposting)
-- [ARSTOON NETWORK STUDIOS](t.me/arstoonnetwork)
-  - *(this is my studio/production channel)*
+*   [ARS7236's YouTube](https://youtube.com/@ARS7236) — *My official YouTube channel*
+*   [ARS7236's Telegram #1](https://t.me/ARS7236) — *Main channel for shitposting*
+*   [ARSTOON NETWORK STUDIOS](https://t.me/arstoonnetwork) — *Studio and production channel*
+
+---
+© 2026 ARS7236
