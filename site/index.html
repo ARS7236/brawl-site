@@ -4,257 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARS's Brawl Stars Site</title>
-    <style>
-        :root {
-            --primary-color: #f8cc1b; /* Brawl Stars Yellow */
-            --secondary-color: #512da8; /* Deep Purple */
-            --bg-dark: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #ffffff;
-            --text-dim: #b0b0b0;
-            --accent: #ff4081;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--secondary-color), #311b92);
-            padding: 2.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #000;
-        }
-
-        header p {
-            margin-top: 0.7rem;
-            font-size: 1.1rem;
-            color: var(--text-dim);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-            flex-grow: 1;
-        }
-
-        /* URL Input Section */
-        .nav-section {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid var(--secondary-color);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .nav-section h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .input-group input {
-            flex-grow: 1;
-            padding: 15px;
-            border-radius: 8px;
-            border: 2px solid #333;
-            background: #000;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .input-group input:focus {
-            border-color: var(--primary-color);
-        }
-
-        .input-group button {
-            background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            padding: 0 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .input-group button:hover {
-            background-color: #ffeb3b;
-        }
-
-        .input-group button:active {
-            transform: scale(0.95);
-        }
-
-        /* Example Websites Grid */
-        .section-title {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .site-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .site-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-            border: 1px solid #333;
-            display: block;
-        }
-
-        .site-card:hover {
-            background: #2a2a2a;
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .site-card h3 {
-            margin: 0 0 8px 0;
-            color: var(--primary-color);
-        }
-
-        .site-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        /* My Links Section */
-        .author-section {
-            background: rgba(81, 45, 168, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px dashed var(--secondary-color);
-        }
-
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0 0;
-        }
-
-        .link-list li {
-            margin-bottom: 12px;
-        }
-
-        .link-list a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .link-list a:hover {
-            text-decoration: underline;
-        }
-
-        .link-desc {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-left: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
 <header>
-    <h1>ARS's Brawl Stars Site</h1>
-    <p>A versatile site where you can browse anything, anywhere!</p>
+    <h1 data-i18n="header-title">ARS's Brawl Stars browser!</h1>
+    <p data-i18n="header-subtitle">A versatile site where you can browse anything, anywhere!</p>
 </header>
 
 <div class="container">
-    <!-- Manual Navigation -->
     <div class="nav-section">
-        <h2>Navigate to any URL</h2>
+        <h2 data-i18n="nav-title">Navigate to any URL</h2>
         <div class="input-group">
-            <input type="text" id="urlInput" placeholder="Enter URL (e.g. google.com)">
-            <button onclick="redirectToSite()">Go</button>
+            <input type="text" id="urlInput" data-i18n-placeholder="nav-placeholder" placeholder="Enter URL (e.g. google.com)">
+            <button onclick="redirectToSite()" data-i18n="nav-button">Go</button>
         </div>
     </div>
 
-    <!-- Curated Websites -->
-    <h2 class="section-title">🌐 Example Websites</h2>
+    <h2 class="section-title" data-i18n="examples-title">Example Websites</h2>
     <div class="site-grid">
         <a href="https://www.google.com" class="site-card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=google.com" alt="" class="site-logo">
             <h3>Google</h3>
-            <p>For searching the web</p>
+            <p data-i18n="desc-google">For searching the web</p>
         </a>
         <a href="https://www.youtube.com" class="site-card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com" alt="" class="site-logo">
             <h3>YouTube</h3>
-            <p>For watching videos</p>
+            <p data-i18n="desc-youtube">For watching videos</p>
         </a>
         <a href="https://files.dnull.xyz/someshit.html" class="site-card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=nulls.gg" alt="" class="site-logo">
             <h3>Null's Magic Color</h3>
-            <p>For colored text input</p>
+            <p data-i18n="desc-magic">For colored text input</p>
         </a>
         <a href="https://nulls.gg" class="site-card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=nulls.gg" alt="" class="site-logo">
             <h3>Nulls.gg</h3>
-            <p>Official Null's site for private servers</p>
+            <p data-i18n="desc-nulls">Official Null's site for private servers</p>
         </a>
     </div>
 
-    <!-- Author Socials -->
     <div class="author-section">
-        <h2 class="section-title" style="border-color: var(--accent);">✍️ My Links</h2>
+        <h2 class="section-title accent-border" data-i18n="links-title">My Links</h2>
         <ul class="link-list">
             <li>
                 <a href="https://youtube.com/@ARS7236">ARS7236's YouTube</a>
-                <span class="link-desc">— My official YouTube channel</span>
+                <span class="link-desc" data-i18n="social-yt">— My official YouTube channel</span>
             </li>
             <li>
                 <a href="https://t.me/ARS7236">ARS7236's Telegram #1</a>
-                <span class="link-desc">— Main channel for shitposting</span>
+                <span class="link-desc" data-i18n="social-tg">— Main channel for shitposting</span>
             </li>
             <li>
                 <a href="https://t.me/arstoonnetwork">ARSTOON NETWORK STUDIOS</a>
-                <span class="link-desc">— Studio and production channel</span>
+                <span class="link-desc" data-i18n="social-studio">— Studio and production channel</span>
             </li>
         </ul>
     </div>
@@ -265,290 +73,95 @@
 </footer>
 
 <script>
-    function redirectToSite() {
-        let url = document.getElementById('urlInput').value.trim();
-        if (url === "") return;
-
-        // Auto-format the URL if the user didn't include http/https
-        if (!url.startsWith('http://') && !url.startsWith('https://')) {
-            url = 'https://' + url;
+    const translations = {
+        en: {
+            "header-title": "ARS's Brawl Stars browser!",
+            "header-subtitle": "A versatile site where you can browse anything, anywhere!",
+            "nav-title": "Navigate to any URL",
+            "nav-placeholder": "Enter URL (e.g. google.com)",
+            "nav-button": "Go",
+            "examples-title": "Example Websites",
+            "desc-google": "For searching the web",
+            "desc-youtube": "For watching videos",
+            "desc-magic": "For colored text input",
+            "desc-nulls": "Official Null's site for private servers",
+            "links-title": "My Links",
+            "social-yt": "— My official YouTube channel",
+            "social-tg": "— Main channel for shitposting",
+            "social-studio": "— Studio and production channel"
+        },
+        ru: {
+            "header-title": "Браузер ARS Brawl Stars!",
+            "header-subtitle": "Универсальный сайт, где можно просматривать что угодно и где угодно!",
+            "nav-title": "Перейти по любому URL",
+            "nav-placeholder": "Введите URL (например, google.com)",
+            "nav-button": "Перейти",
+            "examples-title": "Примеры сайтов",
+            "desc-google": "Для поиска в Интернете",
+            "desc-youtube": "Для просмотра видео",
+            "desc-magic": "Для ввода цветного текста",
+            "desc-nulls": "Официальный сайт Null's для приватных серверов",
+            "links-title": "Мои ссылки",
+            "social-yt": "— Мой официальный YouTube канал",
+            "social-tg": "— Основной канал для щитпостинга",
+            "social-studio": "— Студийный и производственный канал"
+        },
+        pt: {
+            "header-title": "Navegador Brawl Stars do ARS!",
+            "header-subtitle": "Um site versátil onde você pode navegar em qualquer lugar, a qualquer hora!",
+            "nav-title": "Navegar para qualquer URL",
+            "nav-placeholder": "Digite o URL (ex: google.com)",
+            "nav-button": "Ir",
+            "examples-title": "Exemplos de Sites",
+            "desc-google": "Para pesquisar na web",
+            "desc-youtube": "Para assistir vídeos",
+            "desc-magic": "Para entrada de texto colorido",
+            "desc-nulls": "Site oficial do Null's para servidores privados",
+            "links-title": "Meus Links",
+            "social-yt": "— Meu canal oficial no YouTube",
+            "social-tg": "— Canal principal para shitposting",
+            "social-studio": "— Canal de estúdio e produção"
+        },
+        ko: {
+            "header-title": "ARS의 브롤스타즈 브라우저!",
+            "header-subtitle": "어디서나 무엇이든 탐색할 수 있는 다용도 사이트!",
+            "nav-title": "모든 URL로 이동",
+            "nav-placeholder": "URL 입력 (예: google.com)",
+            "nav-button": "이동",
+            "examples-title": "예시 웹사이트",
+            "desc-google": "웹 검색용",
+            "desc-youtube": "동영상 시청용",
+            "desc-magic": "컬러 텍스트 입력용",
+            "desc-nulls": "프라이빗 서버를 위한 공식 Null's 사이트",
+            "links-title": "내 링크",
+            "social-yt": "— 내 공식 유튜브 채널",
+            "social-tg": "— 뻘글용 메인 채널",
+            "social-studio": "— 스튜디오 및 제작 채널"
         }
+    };
 
-        // Redirect the current window to the new URL
-        window.location.href = url;
+    function applyTranslations() {
+        const userLang = navigator.language.split('-')[0];
+        const lang = translations[userLang] ? userLang : 'en';
+        const dictionary = translations[lang];
+
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (dictionary[key]) {
+                element.textContent = dictionary[key];
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            if (dictionary[key]) {
+                element.placeholder = dictionary[key];
+            }
+        });
     }
 
-    // Allow pressing "Enter" key to trigger the redirect
-    document.getElementById('urlInput').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            redirectToSite();
-        }
-    });
-</script>
+    document.addEventListener('DOMContentLoaded', applyTranslations);
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARS's Brawl Stars Site</title>
-    <style>
-        :root {
-            --primary-color: #f8cc1b; /* Brawl Stars Yellow */
-            --secondary-color: #512da8; /* Deep Purple */
-            --bg-dark: #121212;
-            --card-bg: #1e1e1e;
-            --text-light: #ffffff;
-            --text-dim: #b0b0b0;
-            --accent: #ff4081;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--secondary-color), #311b92);
-            padding: 2.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 0px #000;
-        }
-
-        header p {
-            margin-top: 0.7rem;
-            font-size: 1.1rem;
-            color: var(--text-dim);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-            flex-grow: 1;
-        }
-
-        .nav-section {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid var(--secondary-color);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .nav-section h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .input-group input {
-            flex-grow: 1;
-            padding: 15px;
-            border-radius: 8px;
-            border: 2px solid #333;
-            background: #000;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .input-group input:focus {
-            border-color: var(--primary-color);
-        }
-
-        .input-group button {
-            background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            padding: 0 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .input-group button:hover {
-            background-color: #ffeb3b;
-        }
-
-        .input-group button:active {
-            transform: scale(0.95);
-        }
-
-        .section-title {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .site-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .site-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-            border: 1px solid #333;
-            display: block;
-        }
-
-        .site-card:hover {
-            background: #2a2a2a;
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .site-card h3 {
-            margin: 0 0 8px 0;
-            color: var(--primary-color);
-        }
-
-        .site-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        .author-section {
-            background: rgba(81, 45, 168, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px dashed var(--secondary-color);
-        }
-
-        .link-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0 0;
-        }
-
-        .link-list li {
-            margin-bottom: 12px;
-        }
-
-        .link-list a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .link-list a:hover {
-            text-decoration: underline;
-        }
-
-        .link-desc {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-left: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>ARS's Brawl Stars Site</h1>
-    <p>A versatile site where you can browse anything, anywhere!</p>
-</header>
-
-<div class="container">
-    <div class="nav-section">
-        <h2>Navigate to any URL</h2>
-        <div class="input-group">
-            <input type="text" id="urlInput" placeholder="Enter URL (e.g. google.com)">
-            <button onclick="redirectToSite()">Go</button>
-        </div>
-    </div>
-
-    <h2 class="section-title">Example Websites</h2>
-    <div class="site-grid">
-        <a href="https://www.google.com" class="site-card">
-            <h3>Google</h3>
-            <p>For searching the web</p>
-        </a>
-        <a href="https://www.youtube.com" class="site-card">
-            <h3>YouTube</h3>
-            <p>For watching videos</p>
-        </a>
-        <a href="https://files.dnull.xyz/someshit.html" class="site-card">
-            <h3>Null's Magic Color</h3>
-            <p>For colored text input</p>
-        </a>
-        <a href="https://nulls.gg" class="site-card">
-            <h3>Nulls.gg</h3>
-            <p>Official Null's site for private servers</p>
-        </a>
-    </div>
-
-    <div class="author-section">
-        <h2 class="section-title" style="border-color: var(--accent);">My Links</h2>
-        <ul class="link-list">
-            <li>
-                <a href="https://youtube.com/@ARS7236">ARS7236's YouTube</a>
-                <span class="link-desc">— My official YouTube channel</span>
-            </li>
-            <li>
-                <a href="https://t.me/ARS7236">ARS7236's Telegram #1</a>
-                <span class="link-desc">— Main channel for shitposting</span>
-            </li>
-            <li>
-                <a href="https://t.me/arstoonnetwork">ARSTOON NETWORK STUDIOS</a>
-                <span class="link-desc">— Studio and production channel</span>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<footer>
-    © 2026 ARS7236
-</footer>
-
-<script>
     function redirectToSite() {
         let url = document.getElementById('urlInput').value.trim();
         if (url === "") return;
