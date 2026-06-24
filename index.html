@@ -162,6 +162,29 @@
 
     document.addEventListener('DOMContentLoaded', applyTranslations);
 
+    // Add stroke only to elements that render as white on the page.
+    function isColorWhite(rgbString) {
+        const m = rgbString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+        if (!m) return false;
+        const r = parseInt(m[1], 10), g = parseInt(m[2], 10), b = parseInt(m[3], 10);
+        return r >= 250 && g >= 250 && b >= 250;
+    }
+
+    function markWhiteText() {
+        document.querySelectorAll('body *').forEach(el => {
+            const cs = getComputedStyle(el);
+            if (!cs || !cs.color) return;
+            if (isColorWhite(cs.color)) {
+                el.classList.add('text-white');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        applyTranslations();
+        markWhiteText();
+    });
+
     function redirectToSite() {
         let url = document.getElementById('urlInput').value.trim();
         if (url === "") return;
