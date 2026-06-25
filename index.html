@@ -12,6 +12,15 @@
 <body>
 
 <header>
+    <div class="lang-picker">
+        <button id="langToggleBtn" class="lang-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Open language menu">EN</button>
+        <div class="lang-menu" id="langMenu" role="menu" aria-label="Select language">
+            <button type="button" class="lang-menu-item" role="menuitem" data-lang="en">English</button>
+            <button type="button" class="lang-menu-item" role="menuitem" data-lang="ru">Русский</button>
+            <button type="button" class="lang-menu-item" role="menuitem" data-lang="pt">Português</button>
+            <button type="button" class="lang-menu-item" role="menuitem" data-lang="ko">한국어</button>
+        </div>
+    </div>
     <h1 data-i18n="header-title">ARS's Brawl Stars browser!</h1>
     <p data-i18n="header-subtitle">A versatile site where you can browse anything, anywhere!</p>
 </header>
@@ -27,13 +36,13 @@
 
     <h2 class="section-title" data-i18n="examples-title">Example Websites</h2>
     <div class="site-grid">
-        <a href="https://www.google.com" class="site-card">
+        <a id="googleLink" href="https://www.google.com" class="site-card">
             <img src="https://www.google.com/s2/favicons?sz=64&domain=google.com" alt="" class="site-logo">
             <h3>Google</h3>
             <p data-i18n="desc-google">For searching the web</p>
         </a>
-        <a href="https://www.youtube.com" class="site-card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com" alt="" class="site-logo">
+        <a href="https://m.youtube.com" class="site-card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=m.youtube.com" alt="" class="site-logo">
             <h3>YouTube</h3>
             <p data-i18n="desc-youtube">For watching videos</p>
         </a>
@@ -140,10 +149,37 @@
         }
     };
 
-    function applyTranslations() {
-        const userLang = navigator.language.split('-')[0];
-        const lang = translations[userLang] ? userLang : 'en';
-        const dictionary = translations[lang];
+    let currentLang = 'en';
+
+    function getPreferredLang() {
+        const saved = localStorage.getItem('preferredLang');
+        const allowed = ['en', 'ru', 'pt', 'ko'];
+        if (saved && allowed.includes(saved)) {
+            return saved;
+        }
+        const browserLang = navigator.language.split('-')[0];
+        return allowed.includes(browserLang) ? browserLang : 'en';
+    }
+
+    function updateLangToggleLabel(lang) {
+        const btn = document.getElementById('langToggleBtn');
+        if (!btn) return;
+        btn.textContent = lang.toUpperCase();
+        btn.setAttribute('aria-label', `Current language ${lang.toUpperCase()}. Open language menu.`);
+    }
+
+    function updateGoogleLink(lang) {
+        const googleAnchor = document.getElementById('googleLink');
+        if (!googleAnchor) return;
+        const allowed = ['en', 'ru', 'pt', 'ko'];
+        const locale = allowed.includes(lang) ? lang : 'en';
+        googleAnchor.href = `https://www.google.com/?hl=${locale}`;
+    }
+
+    function applyTranslations(lang) {
+        const selectedLang = lang || currentLang || getPreferredLang();
+        currentLang = selectedLang;
+        const dictionary = translations[selectedLang] || translations.en;
 
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
@@ -158,9 +194,61 @@
                 element.placeholder = dictionary[key];
             }
         });
+        updateGoogleLink(selectedLang);
     }
 
-    document.addEventListener('DOMContentLoaded', applyTranslations);
+    function setLanguage(lang) {
+        const allowed = ['en', 'ru', 'pt', 'ko'];
+        if (!allowed.includes(lang)) {
+            lang = 'en';
+        }
+        currentLang = lang;
+        localStorage.setItem('preferredLang', lang);
+        applyTranslations(lang);
+        updateLangToggleLabel(lang);
+    }
+
+    function toggleLanguageMenu() {
+        const menu = document.getElementById('langMenu');
+        const button = document.getElementById('langToggleBtn');
+        if (!menu || !button) return;
+        const isOpen = menu.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    function closeLanguageMenu() {
+        const menu = document.getElementById('langMenu');
+        const button = document.getElementById('langToggleBtn');
+        if (!menu || !button) return;
+        menu.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+    }
+
+    function selectLanguage(lang) {
+        closeLanguageMenu();
+        setLanguage(lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setLanguage(getPreferredLang());
+        document.getElementById('langToggleBtn')?.addEventListener('click', toggleLanguageMenu);
+        document.querySelectorAll('.lang-menu-item').forEach(button => {
+            button.addEventListener('click', event => {
+                const lang = event.currentTarget.getAttribute('data-lang');
+                if (lang) selectLanguage(lang);
+            });
+        });
+
+        document.addEventListener('click', event => {
+            const target = event.target;
+            const picker = document.querySelector('.lang-picker');
+            if (picker && target instanceof Node && !picker.contains(target)) {
+                closeLanguageMenu();
+            }
+        });
+
+        markWhiteText();
+    });
 
     // Add stroke only to elements that render as white on the page.
     function isColorWhite(rgbString) {
@@ -179,11 +267,6 @@
             }
         });
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        applyTranslations();
-        markWhiteText();
-    });
 
     function redirectToSite() {
         let url = document.getElementById('urlInput').value.trim();
